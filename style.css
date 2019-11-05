@@ -1,0 +1,283 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+
+}
+
+img {
+    width: 100%;
+}
+
+figure {
+    margin: 0;
+}
+
+header {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    width: 100vw;
+    height: 60px;
+}
+
+#header_logo {
+    width: 30vw;
+    margin: 2vw 0 0 25vw;
+}
+
+.splash {
+    width: 100vw;
+    height: 50vh;
+}
+
+.splash img {
+    height: 100%;
+}
+
+.forside_boks {
+    width: 96vw;
+    height: 30vh;
+    margin: 0 2vw 0 2vw;
+}
+
+.cykler {
+    width: 96vw;
+    height: 65vh;
+    margin: 0 2vw 0 2vw;
+}
+
+.kontakt {
+    width: 96vw;
+    height: 65vh;
+    margin: 0 2vw 0 2vw;
+}
+
+.om_os {
+    width: 96vw;
+    height: 65vh;
+    margin: 0 2vw 0 2vw;
+}
+
+.vaerdier {
+    width: 96vw;
+    height: 65vh;
+    margin: 0 2vw 0 2vw;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 96vw;
+    height: 65vh;
+    margin: 0 2vw 0 2vw;
+}
+
+.box {
+    width: 94vw;
+    height: 94vw;
+    border: 1px solid blue;
+    margin: 2vw 0 2vw 0;
+}
+
+#underside_box {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    margin: 0 3vw 0 3vw;
+}
+
+#underside_info {
+    margin: 0 3vw 0 3vw;
+}
+
+
+
+/***********************Media Query 600px***************************/
+
+@media only screen and (min-width: 600px) {
+
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 25vw 25vw 25vw 25vw 25vw;
+    }
+
+    .splash {
+        width: 100vw;
+        height: 50vh;
+    }
+
+    #header_logo {
+        width: 195px;
+        height: 25px;
+        margin: 1.5vw 0 0 25vw;
+    }
+
+    .forside_boks {
+        grid-column-start: 1;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        width: 48vw;
+        height: 30vw;
+        background-color: white;
+        margin: 0 1vw 0 1vw;
+
+    }
+
+    .cykler {
+        grid-column-start: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        width: 48vw;
+        height: 30vw;
+        margin: 0 1vw 0 1vw;
+
+    }
+
+    .kontakt {
+        grid-column-start: 1;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        width: 48vw;
+        height: 30vw;
+        margin: 0 1vw 0 1vw;
+
+    }
+
+    .om_os {
+        grid-column-start: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        width: 48vw;
+        height: 30vw;
+        margin: 0 1vw 0 1vw;
+    }
+
+    .vaerdier {
+        width: 96vw;
+        height: 60vw;
+        margin: 0 2vw 0 2vw;
+    }
+
+    footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        width: 98vw;
+        height: 30vw;
+        margin: 0 2vw 0 2vw;
+    }
+
+    .box {
+        width: 45vw;
+        height: 45vw;
+        border: 1px solid blue;
+        margin: 2vw 2vw 2vw 2vw;
+    }
+
+    #underside_box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin: 0;
+    }
+
+    #underside_info {
+        margin: 5vw 2vw 0 2vw;
+    }
+}
+
+/***********************Media Query 1000px***************************/
+
+
+@media only screen and (min-width: 1000px) {
+
+    main {
+        margin: 5vw 0 0 0;
+        grid-template-rows: 20vw 20vw 20vw 20vw 35vw;
+    }
+
+    .splash {
+        width: 100vw;
+        height: 50vh;
+    }
+
+    #header_logo {
+        margin: 1vw 0 0 30vw;
+    }
+
+    .forside_boks {
+        width: 46vw;
+        height: 30vw;
+        background-color: white;
+        margin: 0 1vw 0 3vw;
+
+    }
+
+    .cykler {
+        width: 46vw;
+        height: 30vw;
+        margin: 10vw 3vw 0 1vw;
+
+    }
+
+    .kontakt {
+        width: 46vw;
+        height: 30vw;
+        margin: 0 1vw 0 3vw;
+    }
+
+    .om_os {
+        width: 46vw;
+        height: 30vw;
+        margin: 10vw 3vw 0 1vw;
+    }
+
+    .vaerdier {
+        width: 94vw;
+        height: 60vw;
+        margin: 0 3vw 0 3vw;
+    }
+
+    footer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        width: 94vw;
+        height: 30vw;
+        margin: 0 3vw 0 3vw;
+    }
+
+    .box {
+        width: 44vw;
+        height: 44vw;
+        border: 1px solid blue;
+        margin: 3vw 3vw 3vw 3vw;
+    }
+
+    #underside_box {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin: 0;
+    }
+
+    #underside_info {
+        margin: 27vw 3vw 0 3vw;
+    }
+
+}
+
+.liste {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.cykel {
+    background-color: aqua;
+    width: 400px;
+    border: 1px solid black;
+    margin: 10px;
+}

@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title></title>
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">Forside</a>
+            <a href="menu.html">Menu</a>
+            <a href="om.html">Om</a>
+            <a href="kontakt.html">Kontakt</a>
+        </nav>
+
+        <div id="header_logo">
+            <img src="assets/kogaLogo_A0_Rectangle_5_pattern@2x.png" alt="">
+        </div>
+    </header>
+
+    <section class="splash"></section>
+
+    <section id="underside_info">
+        <h2>Cykler</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente harum, corporis, aut quam dolores minima maiores. Fugiat laboriosam adipisci temporibus, placeat repellendus! Neque animi id impedit perferendis, vel, sint iste.</p>
+    </section>
+
+    <main id="underside_box">
+
+
+        <div id="racer" class="box"></div>
+        <div id="City" class="box"></div>
+        <div id="trekking" class="box"></div>
+        <div id="ebikes" class="box"></div>
+
+    </main>
+
+    <section class="vaerdier">
+        <img src="assets/Koga_Signature_WorldTraveller__A0_Rectangle_8_pattern@2x.png" alt="">
+
+    </section>
+
+
+    <footer>
+        <div id="footer_cykler">
+            <h2>E-bikes</h2>
+            <h3>City & Touring</h3>
+            <h3>Trekking</h3>
+            <h3>Race</h3>
+            <h3>Signature</h3>
+        </div>
+        <div id="footer_service">
+            <h2>E-bikes</h2>
+            <h3>City & Touring</h3>
+            <h3>Trekking</h3>
+            <h3>Race</h3>
+            <h3>Signature</h3>
+        </div>
+        <div id="footer_om_koga">
+            <h2>E-bikes</h2>
+            <h3>City & Touring</h3>
+            <h3>Trekking</h3>
+            <h3>Race</h3>
+            <h3>Signature</h3>
+        </div>
+        <div id="footer_social">
+            <h2>E-bikes</h2>
+            <h3>City & Touring</h3>
+            <h3>Trekking</h3>
+            <h3>Race</h3>
+            <h3>Signature</h3>
+        </div>
+    </footer>
+
+    <script>
+        //Hent cykler
+        let forside;
+        let forsideBoks;
+
+        const forsideUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/pages/41";
+        const kogaboksUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/pages/48";
+
+        document.addEventListener("DOMContentLoaded", start);
+
+        function start() {
+            hentJsonSplash();
+        }
+
+        async function hentJsonSplash() {
+            const response = await fetch(forsideUrl);
+            forside = await response.json();
+            hentJsonBoks();
+        }
+
+        async function hentJsonBoks() {
+            const response = await fetch(kogaboksUrl);
+            forsideBoks = await response.json();
+            vis();
+        }
+
+        function vis() {
+            document.querySelector(".splash").innerHTML = forside.content.rendered;
+            document.querySelector(".forside_boks").innerHTML = forsideBoks.content.rendered;
+
+        }
+    </script>
+
+</body></html>
