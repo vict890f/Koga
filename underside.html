@@ -14,10 +14,8 @@
 
     <header>
         <nav>
-            <a href="index.html">Forside</a>
-            <a href="menu.html">Menu</a>
-            <a href="om.html">Om</a>
-            <a href="kontakt.html">Kontakt</a>
+            <a href="forside.html">Forside</a>
+            <a href="cykler.html">Cykler</a>
         </nav>
 
         <div id="header_logo">
@@ -25,27 +23,34 @@
         </div>
     </header>
 
-    <section class="splash"></section>
 
-    <section id="underside_info">
-        <h2>Cykler</h2>
+    <!--    <section class="splash"></section>-->
+
+    <section class="underside_info">
+        <h2>CYKLER</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente harum, corporis, aut quam dolores minima maiores. Fugiat laboriosam adipisci temporibus, placeat repellendus! Neque animi id impedit perferendis, vel, sint iste.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente harum, corporis, aut quam dolores minima maiores. Fugiat laboriosam adipisci temporibus, placeat repellendus! Neque animi id impedit perferendis, vel, sint iste.</p>
     </section>
 
+
     <main id="underside_box">
-
-
-        <div id="racer" class="box"></div>
-        <div id="City" class="box"></div>
-        <div id="trekking" class="box"></div>
-        <div id="ebikes" class="box"></div>
-
+        <section class="liste"></section>
+        <template>
+            <article class="ret box">
+                <h2 class="title"></h2>
+                <img class="billede" src="">
+                <div class="beskrivelse"></div>
+                <div class="pris"></div>
+            </article>
+        </template>
     </main>
 
+
     <section class="vaerdier">
-        <img src="assets/Koga_Signature_WorldTraveller__A0_Rectangle_8_pattern@2x.png" alt="">
+        <img src="assets/vaerdier.jpg" alt="">
 
     </section>
+
 
 
     <footer>
@@ -83,9 +88,11 @@
         //Hent cykler
         let forside;
         let forsideBoks;
+        let cykler;
 
-        const forsideUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/pages/41";
-        const kogaboksUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/pages/48";
+        const cyklerUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/cykler/";
+        const forsideUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/pages/90";
+        const kogaboksUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/pages/90";
 
         document.addEventListener("DOMContentLoaded", start);
 
@@ -102,13 +109,30 @@
         async function hentJsonBoks() {
             const response = await fetch(kogaboksUrl);
             forsideBoks = await response.json();
-            vis();
+            hentCyklerJson();
         }
 
-        function vis() {
-            document.querySelector(".splash").innerHTML = forside.content.rendered;
-            document.querySelector(".forside_boks").innerHTML = forsideBoks.content.rendered;
 
+
+        async function hentCyklerJson() {
+            const response = await fetch(cyklerUrl);
+            cykler = await response.json();
+            console.log(cykler);
+            visCykler();
+        }
+
+        function visCykler() {
+            const skabelon = document.querySelector("template");
+            const liste = document.querySelector(".liste");
+
+            cykler.forEach(cykel => {
+                const klon = skabelon.cloneNode(true).content;
+                klon.querySelector(".title").textContent = cykel.title.rendered;
+
+                klon.querySelector(".billede").src = cykel.billede[0].guid;
+
+                liste.appendChild(klon);
+            });
         }
     </script>
 

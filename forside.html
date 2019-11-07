@@ -10,13 +10,10 @@
 </head>
 
 <body>
-
     <header>
         <nav>
-            <a href="index.html">Forside</a>
-            <a href="menu.html">Menu</a>
-            <a href="om.html">Om</a>
-            <a href="kontakt.html">Kontakt</a>
+            <a href="forside.html">Forside</a>
+            <a href="cykler.html">Cykler</a>
         </nav>
 
         <div id="header_logo">
@@ -34,18 +31,18 @@
             <img src="assets/seVoresCykler.jpg" alt="">
         </section>
         <section class="kontakt">
-            <img src="assets/seVoresCykler.jpg" alt="">
+            <img src="assets/kontakt.jpg" alt="">
 
         </section>
         <section class="om_os">
-            <img src="assets/seVoresCykler.jpg" alt="">
+            <img src="assets/omOs.jpg" alt="">
 
         </section>
 
     </main>
 
     <section class="vaerdier">
-        <img src="assets/Koga_Signature_WorldTraveller__A0_Rectangle_8_pattern@2x.png" alt="">
+        <img src="assets/vaerdier.jpg" alt="">
 
     </section>
 
@@ -91,6 +88,7 @@
 
         document.addEventListener("DOMContentLoaded", start);
 
+
         function start() {
             hentJsonSplash();
         }
@@ -110,6 +108,8 @@
         function vis() {
             document.querySelector(".splash").innerHTML = forside.content.rendered;
             document.querySelector(".forside_boks").innerHTML = forsideBoks.content.rendered;
+
+
 
         }
     </script>

@@ -3,7 +3,6 @@ body {
     margin: 0;
     display: grid;
     grid-template-columns: 1fr;
-
 }
 
 img {
@@ -22,13 +21,16 @@ header {
 }
 
 #header_logo {
-    width: 30vw;
-    margin: 2vw 0 0 25vw;
+    width: 150px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
 .splash {
     width: 100vw;
-    height: 50vh;
+    height: 60vw;
 }
 
 .splash img {
@@ -37,32 +39,38 @@ header {
 
 .forside_boks {
     width: 96vw;
-    height: 30vh;
+    height: 60vw;
     margin: 0 2vw 0 2vw;
 }
 
 .cykler {
     width: 96vw;
-    height: 65vh;
+    height: 80vw;
     margin: 0 2vw 0 2vw;
 }
 
 .kontakt {
     width: 96vw;
-    height: 65vh;
+    height: 80vw;
     margin: 0 2vw 0 2vw;
 }
 
 .om_os {
     width: 96vw;
-    height: 65vh;
+    height: 80vw;
     margin: 0 2vw 0 2vw;
 }
 
 .vaerdier {
     width: 96vw;
-    height: 65vh;
+    height: 80vw;
     margin: 0 2vw 0 2vw;
+}
+
+.signature {
+    width: 96vw;
+    height: 80vw;
+    margin: 0 2vw 2vw 2vw;
 }
 
 footer {
@@ -74,10 +82,21 @@ footer {
     margin: 0 2vw 0 2vw;
 }
 
+.liste {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+
+.cykel {
+    background-color: aqua;
+    width: 400px;
+    border: 1px solid black;
+    margin: 10px;
+}
+
 .box {
     width: 94vw;
     height: 94vw;
-    border: 1px solid blue;
     margin: 2vw 0 2vw 0;
 }
 
@@ -88,11 +107,30 @@ footer {
     margin: 0 3vw 0 3vw;
 }
 
-#underside_info {
+.underside_info {
     margin: 0 3vw 0 3vw;
 }
 
+.underside_info h2 {
+    font-size: 1.5rem;
+    margin: 0 auto 5vw;
+    max-width: 100px;
+    display: block;
+}
 
+/***************Fonts*********/
+
+h1 {
+    font-family: sans-serif;
+}
+
+h2 {
+    font-family: sans-serif;
+}
+
+p {
+    font-family: sans-serif;
+}
 
 /***********************Media Query 600px***************************/
 
@@ -101,56 +139,58 @@ footer {
     main {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 25vw 25vw 25vw 25vw 25vw;
-    }
-
-    .splash {
-        width: 100vw;
-        height: 50vh;
+        grid-template-rows: 20vw 20vw 20vw 20vw;
     }
 
     #header_logo {
-        width: 195px;
-        height: 25px;
-        margin: 1.5vw 0 0 25vw;
+        width: 155px;
+        margin: 15px 0 0 50px;
+    }
+
+    header {
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 250px;
+        background-color: white;
     }
 
     .forside_boks {
-        grid-column-start: 1;
-        grid-row-start: 1;
-        grid-row-end: 2;
-        width: 48vw;
-        height: 30vw;
+        position: absolute;
+        top: 50vh;
+        width: 46vw;
+        height: 40vw;
         background-color: white;
         margin: 0 1vw 0 1vw;
+        padding: 0 1vw 1vw 1vw;
 
     }
 
     .cykler {
         grid-column-start: 2;
-        grid-row-start: 2;
-        grid-row-end: 3;
-        width: 48vw;
-        height: 30vw;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        width: 47vw;
+        height: 40vw;
         margin: 0 1vw 0 1vw;
 
     }
 
     .kontakt {
         grid-column-start: 1;
-        grid-row-start: 3;
-        grid-row-end: 4;
-        width: 48vw;
-        height: 30vw;
-        margin: 0 1vw 0 1vw;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        width: 47vw;
+        height: 40vw;
+        margin: 0 1vw 0 2vw;
 
     }
 
     .om_os {
         grid-column-start: 2;
-        grid-row-start: 4;
-        grid-row-end: 5;
-        width: 48vw;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        width: 47vw;
         height: 30vw;
         margin: 0 1vw 0 1vw;
     }
@@ -161,123 +201,49 @@ footer {
         margin: 0 2vw 0 2vw;
     }
 
+    .signature {
+        width: 96vw;
+        height: 60vw;
+        margin: 0 2vw 2vw 2vw;
+    }
+
     footer {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
-        width: 98vw;
+        width: 96vw;
         height: 30vw;
         margin: 0 2vw 0 2vw;
     }
 
     .box {
-        width: 45vw;
-        height: 45vw;
-        border: 1px solid blue;
-        margin: 2vw 2vw 2vw 2vw;
+        width: 40vw;
+        height: 40vw;
     }
 
     #underside_box {
+        width: 90vw;
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        margin: 0;
+        margin: 0 4vw 0 6vw;
+    }
+
+    .box:hover {
+        opacity: 0.2;
     }
 
     #underside_info {
-        margin: 5vw 2vw 0 2vw;
-    }
-}
-
-/***********************Media Query 1000px***************************/
-
-
-@media only screen and (min-width: 1000px) {
-
-    main {
-        margin: 5vw 0 0 0;
-        grid-template-rows: 20vw 20vw 20vw 20vw 35vw;
+        margin: 1vw 15vw 0 15vw;
     }
 
-    .splash {
-        width: 100vw;
-        height: 50vh;
-    }
-
-    #header_logo {
-        margin: 1vw 0 0 30vw;
-    }
-
-    .forside_boks {
-        width: 46vw;
-        height: 30vw;
-        background-color: white;
-        margin: 0 1vw 0 3vw;
-
-    }
-
-    .cykler {
-        width: 46vw;
-        height: 30vw;
-        margin: 10vw 3vw 0 1vw;
-
-    }
-
-    .kontakt {
-        width: 46vw;
-        height: 30vw;
-        margin: 0 1vw 0 3vw;
-    }
-
-    .om_os {
-        width: 46vw;
-        height: 30vw;
-        margin: 10vw 3vw 0 1vw;
-    }
-
-    .vaerdier {
-        width: 94vw;
-        height: 60vw;
-        margin: 0 3vw 0 3vw;
-    }
-
-    footer {
+    .liste {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        width: 94vw;
-        height: 30vw;
-        margin: 0 3vw 0 3vw;
     }
 
-    .box {
-        width: 44vw;
-        height: 44vw;
-        border: 1px solid blue;
-        margin: 3vw 3vw 3vw 3vw;
+    .cykel {
+        width: 400px;
+        border: 1px solid black;
+        margin: 10px;
     }
 
-    #underside_box {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        margin: 0;
-    }
-
-    #underside_info {
-        margin: 27vw 3vw 0 3vw;
-    }
-
-}
-
-.liste {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.cykel {
-    background-color: aqua;
-    width: 400px;
-    border: 1px solid black;
-    margin: 10px;
 }
