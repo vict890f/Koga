@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="kogacomstyle.css">
+
+
+</head>
+
+<body>
+
+    <header>
+        <div id="menu_box">
+            <nav>
+                <div id="menuknap">☰</div>
+                <ul id="menu" class="hidden">
+                    <li><a href="kogacom.html">FORSIDE</a></li>
+                    <li><a href="kogacomom.html">OM KOGA</a></li>
+                    <li><a href="kogacomcykler.html">CYKLER</a></li>
+                    <li><a href="kogacomkontakt.html">KONTAKT</a></li>
+
+                </ul>
+            </nav>
+        </div>
+        <div id="logo_box"></div>
+    </header>
+
+    <section class="produkt">
+
+        <div class="produkt_billeder"></div>
+        <div class="produkt_info">
+            <h2></h2>
+            <h3></h3>
+        </div>
+
+
+    </section>
+
+
+    <section class="box4">
+        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
+        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
+        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
+        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
+
+    </section>
+
+
+
+
+
+
+
+
+    <script>
+        let cykler = [];
+        let urlParams = new URLSearchParams(window.location.search);
+        let navn = urlParams.get("navn");
+        let menuArray;
+        const cyklerUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/cykler?per_page=50";
+
+
+        window.addEventListener("load", sidenVises);
+
+        function sidenVises() {
+            console.log("sidenVises");
+            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+        }
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+            document.querySelector("#menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+                document.querySelector("#menuknap").textContent = "☰";
+            } else {
+                document.querySelector("#menuknap").textContent = "X";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", hentJson);
+
+        async function hentJson() {
+            const response = await fetch(cyklerUrl);
+            cykler = await response.json();
+            console.log(cykler);
+
+            visCykel();
+        }
+
+        function visCykel() {
+            cykler.forEach(cykel => {
+                if (cykel.id == cykel) {
+
+                    document.querySelector("h2").textContent = cykel.title.rendered;
+
+                    document.querySelector("h3").textContent = cykel.cykel_type;
+                    document.querySelector(".pris").textContent = `${cykel.cykel_pris} DKK`;
+                    //                    document.querySelector(".kort").textContent = cykel.gsx$kort.$t;
+                    //                    document.querySelector(".oprindelse").textContent = `Oprindelse: ${cykel.gsx$oprindelse.$t}`;
+                    //                    document.querySelector("img").src = `imgs/small/${cykel.gsx$billede.$t}-sm.jpg`;
+                }
+            })
+
+        }
+
+        //        document.querySelector(".luk").addEventListener("click", () => {
+        // history.back();
+        //
+        // })
+    </script>
+</body></html>

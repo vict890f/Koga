@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="kogacomstyle.css">
+
+
+</head>
+
+<body>
+
+    <header>
+        <div id="menu_box">
+            <nav>
+                <div id="menuknap">☰</div>
+                <ul id="menu" class="hidden">
+                    <li><a href="kogacom.html">FORSIDE</a></li>
+                    <li><a href="kogacomom.html">OM KOGA</a></li>
+                    <li><a href="kogacomcykler.html">CYKLER</a></li>
+                    <li><a href="kogacomkontakt.html">KONTAKT</a></li>
+
+                </ul>
+            </nav>
+        </div>
+        <div id="logo_box"></div>
+    </header>
+
+    <div class="splash">
+        <img src="assets/SRAM0018.jpg" alt="">
+    </div>
+
+    <div class="text_center">
+        <h1>KONTAKT</h1>
+    </div>
+
+    <div class="pic_column">
+        <img src="assets/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x.png" alt="">
+        <div class="column_text">
+            <h3>Koga's historie - kunsten at producere cykler</h3>
+            <p>Siden 1974 har Koga været indbegrebet af høj kvalitet, specielle cykler.. Innovativ i udvikling, visuelt konsekvente og individuelt bygget til hver enkelt kunde, af en special uddannet mekaniker.
+                Koga kunder, forhandlere og medarbejdere over hele verden deler en stor lidenskab: Nemlig cykling, hos Koga handler det om solid kvalitet, stabilitet og holdbarhed. Det er derfor, vi - når det kommer til udvikling og ibrugtagning af nye komponenter, teknologier og materialer - udelukkende samarbejder med de bedste leverandører og samarbejdspartnere.
+                I vores in-house testlaboratorium er alle dele grundigt testet - individuelt, sammen og som en komplet cykel. Kravene er fastlagt i de gældende standarder, men i de fleste tilfælde, er de overskredet for at overholde Koga`s unikke standarder.</p>
+
+            <p>Koga`s primære design princip er, at design skal være funktionel. Vi integrerer komponenter og dele, hvor det giver mening: for et rent udseende og vægttab, styling og farve matching er af stor betydning. Således, at design bliver en typisk Koga og er derfor unik og eksklusivt.
+                Koga er velkendt i og anerkendt af branchen for sin stærke innovative kraft. Dette ry har vi tjent sammen med top-klasse leverandører og partnere over hele verden. Koga stræber efter optimering: ved hjælp af nye materialer og komponenter samt udvikle andre trendsættende nyskabelser. Ligesom de mest innovative online-cykel-konfigurator Koga Signature: www.koga-signature.com</p>
+        </div>
+    </div>
+
+    <div class="pic_column">
+        <div class="column_text">
+            <h3>Koga - en filosofi</h3>
+            <p>Cykling er vores passion- Koga kunder, forhandlere og medarbejdere over hele verden deler en fælles passion: Nemlig cykling, hvor som helst og når som helst, vores produkter er skræddersyet til vores kunder: et perfekt samspil.</p>
+            <p> Vores overbevisning: En gang Koga, altid Koga.</p>
+            <p>Top kvalitet er vores motto. Koga giver ingen indrømmelser, hos Koga handler det om solid kvalitet, stabilitet og holdbarhed, derfor samarbejder Koga udelukkende med de bedste leverandører og samarbejdspartnere, når det kommer til udvikling og ibrugtagning af nye komponenter, teknologier og materialer.</p>
+        </div>
+        <img src="assets/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x.png" alt="">
+    </div>
+
+    <section class="box1">
+        <img src="assets/SRAM0018.jpg" alt="">
+    </section>
+
+    <section class="box4">
+        <img src="assets/1x4/Cykler.jpg" alt="">
+        <img src="assets/1x4/klubKoga.jpg" alt="">
+        <img src="assets/1x4/kontakt.jpg" alt="">
+        <img src="assets/1x4/omKoga.jpg" alt="">
+
+    </section>
+
+
+
+
+
+
+    <script>
+        window.addEventListener("load", sidenVises);
+
+        function sidenVises() {
+            console.log("sidenVises");
+            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+        }
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+            document.querySelector("#menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+                document.querySelector("#menuknap").textContent = "☰";
+            } else {
+                document.querySelector("#menuknap").textContent = "X";
+            }
+        }
+    </script>
+</body></html>

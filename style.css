@@ -15,9 +15,11 @@ figure {
 
 header {
     display: grid;
-    grid-template-columns: 10% 90%;
+    grid-template-columns: 50% 50%;
     width: 100vw;
     height: 60px;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.52);
 }
 
 #header_logo {
@@ -30,19 +32,20 @@ header {
 
 .splash {
     width: 100vw;
-    height: 60vw;
+    height: 30vw;
 }
 
 .splash img {
     height: 100%;
 }
 
-.splash-b {
+.underside_splash {
     width: 100vw;
-    height: 35vw;
+    height: 30vw;
+    margin-top: 80px;
 }
 
-.splash-b img {
+.underside_splash img {
     height: 100%;
 }
 
@@ -194,9 +197,8 @@ p {
     header {
         left: 0;
         top: 0;
-        position: absolute;
-        width: 250px;
-        background-color: white;
+        width: 100vw;
+        height: 80px;
     }
 
     .forside_boks {
@@ -271,6 +273,11 @@ p {
 
     .box h2 {
         font-size: 1rem;
+        text-align: center;
+    }
+
+    .box h3 {
+        font-size: 0.8rem;
         text-align: center;
     }
 

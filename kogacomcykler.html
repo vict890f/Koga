@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="kogacomstyle.css">
+
+
+</head>
+
+<body>
+
+    <header>
+        <div id="menu_box">
+            <nav>
+                <div id="menuknap">☰</div>
+                <ul id="menu" class="hidden">
+                    <li><a href="kogacom.html">FORSIDE</a></li>
+                    <li><a href="kogacomom.html">OM KOGA</a></li>
+                    <li><a href="kogacomcykler.html">CYKLER</a></li>
+                    <li><a href="kogacomkontakt.html">KONTAKT</a></li>
+
+                </ul>
+            </nav>
+        </div>
+        <div id="logo_box"></div>
+    </header>
+
+    <div class="splash">
+        <img src="assets/SRAM0018.jpg" alt="">
+    </div>
+
+    <div id="shop_top" class="text_center">
+        <h1>UDVALG AF CYKLER</h1>
+    </div>
+    <div class="text_center">
+        <div id="knapper">
+            <button class="filter valgt" data-kategori="alle">ALLE</button>
+            <button class="filter" data-kategori="Race-bike">RACING</button>
+            <button class="filter" data-kategori="E-bike">E-BIKE</button>
+            <button class="filter" data-kategori="City/Touring-Bike">CITY TOUR</button>
+        </div>
+    </div>
+
+    <section class="box3">
+        <template>
+            <article class="box">
+                <img class="billede" src="">
+                <div class="info">
+                    <h2 class="title"></h2>
+                    <h3 class="pris"></h3>
+                </div>
+            </article>
+        </template>
+    </section>
+
+    <section class="box4">
+        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
+        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
+        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
+        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
+
+    </section>
+
+
+
+
+
+
+
+    <script>
+        let cykler = [];
+        let filter = "alle";
+        const cyklerUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/cykler?per_page=50";
+        const skabelon = document.querySelector("template");
+        const liste = document.querySelector(".box3");
+
+
+
+        window.addEventListener("load", sidenVises);
+
+        function sidenVises() {
+            console.log("sidenVises");
+            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
+            start();
+        }
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+            document.querySelector("#menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+                document.querySelector("#menuknap").textContent = "☰";
+            } else {
+                document.querySelector("#menuknap").textContent = "X";
+            }
+
+
+        }
+
+
+        function start() {
+            hentCykler();
+            knapperVirker();
+        }
+
+        async function hentCykler() {
+            const response = await fetch(cyklerUrl);
+            cykler = await response.json();
+            console.log(cykler);
+            visCykler();
+        }
+
+        function visCykler() {
+
+            liste.innerHTML = "";
+
+            cykler.forEach(cykel => {
+
+                if (filter == "alle" || filter == cykel.cykel_type) {
+                    console.log(cykler);
+                    const klon = skabelon.cloneNode(true).content;
+
+                    //  Billederne ligger i et array, og vi benytter os da af [0], for at vise det første billede i arrayet
+
+                    klon.querySelector(".billede").src = cykel.billede[0].guid;
+                    klon.querySelector(".billede").alt = cykel.title.rendered + " billede";
+                    klon.querySelector(".title").textContent = cykel.title.rendered;
+                    klon.querySelector(".pris").textContent = `DKK ${cykel.
+                    pris_cykel}`;
+
+                    liste.appendChild(klon);
+
+                    liste.lastElementChild.addEventListener("click", () => {
+                        location.href = `singleview.html?id=${cykel.id}`;
+                    });
+                }
+            });
+
+            //    cykel.billeder.forEach(b => {});
+        }
+
+        function knapperVirker() {
+            // får alle knapper til at virke
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+            })
+        }
+
+        function filtrering() {
+            filter = this.dataset.kategori;
+
+            // styrer overskriften
+            document.querySelector("h1").textContent = this.textContent;
+
+            // knapperne skifter farve
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.classList.remove("valgt");
+            })
+            this.classList.add("valgt");
+
+            visCykler();
+        }
+    </script>
+</body></html>
