@@ -26,6 +26,9 @@
     <section class="splash-b">
 
     </section>
+
+
+
     <section id="underside_info">
         <h1>KOGA, MEGET MERE END EN CYKEL</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente harum, corporis, aut quam dolores minima maiores. Fugiat laboriosam adipisci temporibus, placeat repellendus! Neque animi id impedit perferendis, vel, sint iste.</p>
@@ -33,21 +36,20 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente harum, corporis, aut quam dolores minima maiores. Fugiat laboriosam adipisci temporibus, placeat repellendus! Neque animi id impedit perferendis, vel, sint iste.</p>
     </section>
 
-    <div id="cykler-kategorier">
-        <h3>RACER CYKLER</h3>
-        <h3>TREKKING</h3>
-        <h3>CITY BIKES</h3>
-        <h3>E-BIKES</h3>
+
+    <div id="knapper">
+        <button class="filter valgt" data-kategori="alle">Alle</button>
+        <button class="filter" data-kategori="Race-bike">Racing</button>
+        <button class="filter" data-kategori="E-bike">E-bike</button>
+        <button class="filter" data-kategori="City/Touring-Bike">City Tour</button>
     </div>
-
-
 
     <main id="underside_box">
         <section class="liste"></section>
         <template>
             <article class="box">
-                <h2 class="title"></h2>
                 <img class="billede" src="">
+                <h2 class="title"></h2>
                 <div class="beskrivelse"></div>
                 <div class="pris"></div>
             </article>
@@ -97,15 +99,20 @@
 
         let forside;
         let forsideBoks;
-        let cykler;
-        const cyklerUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/cykler/";
+        let cykler = [];
+        let filter = "alle";
+        const cyklerUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/cykler?per_page=50";
         const forsideUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/pages/90";
         const kogaboksUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/pages/48";
+        const skabelon = document.querySelector("template");
+        const liste = document.querySelector(".liste");
+
 
         document.addEventListener("DOMContentLoaded", start);
 
         function start() {
             hentJsonSplash();
+            knapperVirker();
         }
 
         async function hentJsonSplash() {
@@ -134,21 +141,74 @@
         }
 
         function visCykler() {
-            const skabelon = document.querySelector("template");
-            const liste = document.querySelector(".liste");
+
+            liste.innerHTML = "";
 
             cykler.forEach(cykel => {
-                const klon = skabelon.cloneNode(true).content;
-                klon.querySelector(".title").textContent = cykel.title.rendered;
-                klon.querySelector(".beskrivelse").innerHTML = cykel.content.rendered;
 
-                klon.querySelector(".billede").src = cykel.billede[0].guid;
+                if (filter == "alle" || filter == cykel.cykel_type) {
+                    console.log(cykler);
+                    const klon = skabelon.cloneNode(true).content;
 
-                liste.appendChild(klon);
+                    //  Billederne ligger i et array, og vi benytter os da af [0], for at vise det første billede i arrayet
+                    klon.querySelector(".billede").src = cykel.billede[0].guid;
+                    klon.querySelector(".billede").alt = cykel.title.rendered + " billede";
+                    klon.querySelector(".title").textContent = cykel.title.rendered;
+                    klon.querySelector(".pris").textContent = cykel.pris.rendered;
+
+                    liste.appendChild(klon);
+
+                    liste.lastElementChild.addEventListener("click", () => {
+                        location.href = `cykel_singleview.html?id=${cykel.id}`;
+                    });
+                }
             });
+
+
+
+            //    cykel.billeder.forEach(b => {});
         }
 
-    </script>
-</body>
+        function knapperVirker() {
+            // får alle knapper til at virke
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.addEventListener("click", filtrering);
+            })
+        }
 
-</html>
+        function filtrering() {
+            filter = this.dataset.kategori;
+
+            // styrer overskriften
+            document.querySelector("h1").textContent = this.textContent;
+
+            // knapperne skifter farve
+            document.querySelectorAll(".filter").forEach(elm => {
+                elm.classList.remove("valgt");
+            })
+            this.classList.add("valgt");
+
+            vis();
+        }
+
+
+
+        //    cykel.billeder.forEach(b => {});
+
+
+
+
+
+        //
+        //            cykler.forEach(cykel => {
+        //                const klon = skabelon.cloneNode(true).content;
+        //                klon.querySelector(".title").textContent = cykel.title.rendered;
+        //                klon.querySelector(".beskrivelse").innerHTML = cykel.content.rendered;
+        //
+        //                klon.querySelector(".billede").src = cykel.billede[0].guid;
+        //
+        //                liste.appendChild(klon);
+        //            });
+        //        }
+    </script>
+</body></html>

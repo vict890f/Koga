@@ -14,7 +14,6 @@
         <nav>
             <a href="forside.html">Forside</a>
             <a href="cykler.html">Cykler</a>
-            <a href="om.html">Om</a>
         </nav>
 
         <div id="header_logo">
@@ -24,21 +23,22 @@
 
     <section class="splash"></section>
 
-    <main>
-        <div class="forside_boks">
+    <main id="main-om">
+        <div id="forside_boks_om" class="forside_boks">
+        </div>
+        <div id="om_billede">
+            <img src="assets/om_billede.jpg" alt="">
         </div>
 
-        <section class="cykler">
-            <img src="assets/seVoresCykler.jpg" alt="">
-        </section>
-        <section class="kontakt">
-            <img src="assets/kontakt.jpg" alt="">
 
-        </section>
-        <section class="om_os">
-            <img src="assets/omOs.jpg" alt="">
+        <div id="historie">
+            <h2></h2>
+            <p>Siden 1974 har Koga været indbegrebet af høj kvalitet, specielle cykler.. Innovativ i udvikling, visuelt konsekvente og individuelt bygget til hver enkelt kunde, af en special uddannet mekaniker.
+                Koga kunder, forhandlere og medarbejdere over hele verden deler en stor lidenskab: Nemlig cykling, hos Koga handler det om solid kvalitet, stabilitet og holdbarhed. Det er derfor, vi - når det kommer til udvikling og ibrugtagning af nye komponenter, teknologier og materialer - udelukkende samarbejder med de bedste leverandører og samarbejdspartnere.
+                I vores in-house testlaboratorium er alle dele grundigt testet - individuelt, sammen og som en komplet cykel. Kravene er fastlagt i de gældende standarder, men i de fleste tilfælde, er de overskredet for at overholde Koga`s unikke standarder.</p>
+        </div>
 
-        </section>
+
 
     </main>
 
@@ -85,7 +85,7 @@
         let forsideBoks;
 
         const forsideUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/pages/41";
-        const kogaboksUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/pages/48";
+        const kogaboksUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/pages/112";
 
         document.addEventListener("DOMContentLoaded", start);
 
