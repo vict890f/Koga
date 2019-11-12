@@ -17,6 +17,35 @@
       width: 100vw;
       height: 60px;
       background-color: white;
+      z-index: 100;
+  }
+
+  .ikon {
+      width: 26px;
+      height: 26px;
+  }
+
+  #fb {
+      background-image: url(assets/socialMedier/facebook.png);
+      background-size: contain;
+  }
+
+  #ig {
+      background-image: url(assets/socialMedier/instagram.png);
+      background-size: contain;
+  }
+
+  #tw {
+      background-image: url(assets/socialMedier/twitter.png);
+      background-size: contain;
+  }
+
+  #social {
+      display: grid;
+      grid-template-columns: 26px 26px 26px;
+      grid-template-rows: 1;
+      justify-content: space-between;
+      padding: 0 10vw 0 0;
   }
 
   #logo_box {
@@ -52,13 +81,83 @@
       text-align: center;
       font-size: .9rem;
       margin: 0;
-
-
   }
 
   .info:hover {
       opacity: 0.4;
   }
+
+  /**************FOOTER************'*/
+
+  footer {
+      display: grid;
+      background-color: #f9f9f9;
+      position: absolute;
+      margin: 5vw 0 0 0;
+      padding: 0 5vw;
+      grid-template-columns: 45vw 45vw;
+      width: 100vw;
+      height: 200px;
+      line-height: 1.5rem;
+      left: 0;
+
+  }
+
+  footer ul,
+  li,
+  a {
+      padding: 0;
+      margin: 1vw 0 3vw 0;
+      font-family: sans-serif;
+      text-decoration: none;
+      list-style: none;
+  }
+
+  footer h2 {
+      margin: 1vw 0;
+  }
+
+  /**************SPLASH************'*/
+
+  .splash {
+      width: 98vw;
+  }
+
+  .splash_kasse {
+      position: absolute;
+      width: 98vw;
+
+  }
+
+  .splash_kasse h1:hover {
+      opacity: 0.7;
+  }
+
+  .splash_firkant:hover {
+      opacity: 0.7;
+  }
+
+  .splash h1 {
+      margin: 8vw 0 0 0;
+      text-align: center;
+      color: white;
+      font-size: 1.2rem;
+  }
+
+  .splash h4 {
+      margin: 5px 0 0 0;
+      color: white;
+      font-size: 1rem;
+      text-align: center;
+  }
+
+  .splash_firkant {
+      margin: 20px auto;
+      width: 200px;
+      height: 25px;
+      border: 3px solid white;
+  }
+
 
   /**************Pic column************'*/
 
@@ -85,8 +184,109 @@
   }
 
   .box4 {
-      margin: 1vw 0;
+      display: grid;
+      grid-template-columns: 46vw 46vw;
+      margin: 1vw;
+      justify-content: space-between;
+  }
 
+  .box4 img {
+      margin: 1vw 0;
+  }
+
+  .singleview-info h2 {
+      text-align: left;
+      font-size: 2rem;
+  }
+
+
+  .singleview-info h3 {
+      text-align: left;
+  }
+
+
+  .singleview-info h4 {
+      font-weight: 500;
+      line-height: 1.6rem;
+  }
+
+
+  /***********Om BOX************/
+
+  #om_box h3 {
+      position: relative;
+
+  }
+
+
+
+
+  /***********Box1************/
+
+  .box1_kasse {
+      margin: 15px 0;
+      position: absolute;
+      width: 98vw;
+  }
+
+  .om_kasse {
+      margin: 25px 0;
+      position: absolute;
+      width: 98vw;
+  }
+
+  .om_kasse h4 {
+      color: white;
+      text-align: center;
+
+  }
+
+  .box1_kasse h3 {
+      color: white;
+      text-align: center;
+
+  }
+
+  .box1_kasse h4 {
+      color: white;
+      margin: 0 auto;
+      width: 90vw;
+      display: block;
+      font-size: .9rem;
+
+  }
+
+  .box1_kasse h5 {
+      color: white;
+      font-size: .9rem;
+      text-align: center;
+      margin: 4px 0;
+
+  }
+
+  .mere {
+      display: block;
+      margin: 3vw auto;
+      width: 90px;
+      height: 25px;
+      border: 3px solid white;
+  }
+
+
+  /***********Box3************/
+
+  .box3_billede h4 {
+      margin: 40vh auto;
+      position: absolute;
+      text-align: center;
+      color: white;
+      width: 98vw;
+      display: block;
+      font-size: 2rem;
+  }
+
+  .box3_billede:hover {
+      opacity: 0.9;
   }
 
   /*************Knapper**********/
@@ -108,7 +308,7 @@
   /*************Header**********/
 
   #menuknap {
-      margin: 10px 10px;
+      margin: 0 10px;
       font-size: 2rem;
   }
 
@@ -126,6 +326,14 @@
       font-family: sans-serif;
   }
 
+  h4 {
+      font-family: sans-serif;
+  }
+
+  h5 {
+      font-family: sans-serif;
+  }
+
   p {
       font-family: sans-serif;
       font-size: .8rem;
@@ -134,13 +342,22 @@
 
   /*DIVS*/
 
+  .text_center {
+      margin: 5vw 0 8vw 0;
+  }
+
   .text_center h3 {
       margin: 1vw 0;
       text-align: center;
   }
 
+  .text_center h1 {
+      text-align: center;
+  }
+
   .text_center p {
       margin: 1vw 10vw;
+      line-height: 1.2rem;
   }
 
   /***************1 box************/
@@ -152,13 +369,13 @@
 
       /*      *******HEADER****Ø******/
       header {
-          grid-template-columns: 20vw 80vw;
+          grid-template-columns: 32vw 58vw;
           height: 100px;
           background-color: rgba(255, 255, 255, 0.76);
       }
 
       #logo_box {
-          margin: 20px 2vw;
+          margin: 30px 4vw;
           grid-column: 1;
           grid-row: 1;
           width: 200px;
@@ -173,7 +390,7 @@
       }
 
       #menu {
-          margin: 30px 30vw 0 0;
+          margin: 45px 20vw 0 0;
           display: grid;
           grid-template-columns: 1fr 1fr 1fr 1fr;
       }
@@ -183,6 +400,7 @@
           text-decoration: none;
           list-style: none;
           font-family: sans-serif;
+          font-size: .7rem;
           color: black;
           font-weight: 900;
       }
@@ -195,6 +413,19 @@
           display: none;
       }
 
+      /**************SPLASH************'*/
+
+      .splash {
+          width: 96vw;
+      }
+
+      .splash_firkant {
+          margin: 150px auto;
+      }
+
+      .splash_kasse h1 {
+          font-size: 4rem;
+      }
 
 
       /***********Fonts************/
@@ -254,17 +485,78 @@
           display: grid;
           grid-template-columns: 23vw 23vw 23vw 23vw;
           justify-content: space-between;
+          margin: 0;
       }
 
       .text_center {
           display: block;
-          margin: 0 auto;
+          margin: 4vw auto 5vw;
           width: 800px;
       }
 
       .text_center h1 {
+          font-size: 3rem;
           text-align: center;
       }
+
+      .box3_billede h4 {
+          margin: 35vh auto;
+          width: 31vw;
+
+      }
+
+      /***********Box1************/
+
+      .box1_kasse {
+          margin: 12vw 0;
+          position: absolute;
+          width: 98vw;
+      }
+
+      .om_kasse {
+          margin: 12vw 0;
+
+      }
+
+      .om_kasse h4 {
+          font-size: 3rem;
+      }
+
+      .box1_kasse h3 {
+          font-size: 2rem;
+          text-align: center;
+
+      }
+
+      .box1_kasse h4 {
+          margin: 0 auto;
+          width: 70vw;
+          display: block;
+          font-size: 2.9rem;
+
+      }
+
+      .box1_kasse h5 {
+          color: white;
+          font-size: .9rem;
+          text-align: center;
+          margin: 4px 0;
+
+      }
+
+      .mere {
+          display: block;
+          margin: 3vw auto;
+          width: 90px;
+          height: 25px;
+          border: 3px solid white;
+      }
+
+      article img {
+          justify-content: center;
+      }
+
+
 
       /*************Knapper**********/
 
@@ -278,6 +570,19 @@
       /*************shop side**********/
 
       #shop_top {
+          margin: 0;
+      }
+
+      footer {
+          padding: 30px 10vw;
+          grid-template-columns: 20vw 20vw 20vw 20vw;
+          height: 250px;
+
+      }
+
+      footer li,
+      ul,
+      a {
           margin: 0;
       }
 

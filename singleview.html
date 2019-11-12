@@ -12,41 +12,87 @@
 
 <body>
 
+
     <header>
         <div id="menu_box">
             <nav>
                 <div id="menuknap">☰</div>
-                <ul id="menu" class="hidden">
-                    <li><a href="kogacom.html">FORSIDE</a></li>
-                    <li><a href="kogacomom.html">OM KOGA</a></li>
-                    <li><a href="kogacomcykler.html">CYKLER</a></li>
-                    <li><a href="kogacomkontakt.html">KONTAKT</a></li>
-
-                </ul>
+                <div id="menu" class="hidden">
+                    <a href="kogacom.html">FORSIDE</a>
+                    <a href="kogacomom.html">OM KOGA</a>
+                    <a href="kogacomcykler.html">CYKLER</a>
+                    <a href="kogacomkontakt.html">KONTAKT</a>
+                </div>
             </nav>
         </div>
         <div id="logo_box"></div>
     </header>
 
-    <section class="produkt">
 
-        <div class="produkt_billeder"></div>
-        <div class="produkt_info">
-            <h2></h2>
-            <h3></h3>
+
+
+
+    <section id="single" class="box2">
+        <div class="singleview-info">
+            <article>
+                <h2 class="title"></h2>
+                <h3 class="pris"></h3>
+                <h4 class="info"></h4>
+                <h4 class="vaegt"></h4>
+                <h4 class="farve"></h4>
+                <h4 class="strrelse"></h4>
+            </article>
         </div>
+        <div class="imgcontainer"></div>
 
+        <template><img class="imgsingle" src="" alt=""></template>
 
     </section>
+
 
 
     <section class="box4">
-        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
-        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
-        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
-        <img src="assets/1x4/ID2017_09_17_Koga_9_1024x683_A0_Rectangle_22_pattern@2x%20copy.png" alt="">
-
+        <img src="assets/1x4/Cykler.jpg" alt="">
+        <img src="assets/1x4/klubKoga.jpg" alt="">
+        <img src="assets/1x4/kontakt.jpg" alt="">
+        <img src="assets/1x4/omKoga.jpg" alt="">
     </section>
+
+    <footer>
+        <div class="blok">
+            <h2>CYKLER</h2>
+            <ul>
+                <li>Racing</li>
+                <li>City</li>
+                <li>Touring</li>
+            </ul>
+        </div>
+        <div class="blok">
+            <h2>SERVICE</h2>
+            <ul>
+                <li>Kontakt</li>
+                <li>Faq</li>
+                <li>Instruktions Manualer</li>
+                <li>Garanti</li>
+            </ul>
+        </div>
+        <div class="blok">
+            <h2>OM KOGA</h2>
+            <ul>
+                <li>Min koga og jeg</li>
+                <li>Historie</li>
+                <li>Forretning</li>
+            </ul>
+        </div>
+        <div class="blok">
+            <h2>SOCIAL</h2>
+            <div id="social">
+                <div id="fb" class="ikon"></div>
+                <div id="tw" class="ikon"></div>
+                <div id="ig" class="ikon"></div>
+            </div>
+        </div>
+    </footer>
 
 
 
@@ -58,9 +104,12 @@
     <script>
         let cykler = [];
         let urlParams = new URLSearchParams(window.location.search);
+        let id = urlParams.get("id");
         let navn = urlParams.get("navn");
+        const skabelon = document.querySelector("template");
+        const liste = document.querySelector(".box3");
         let menuArray;
-        const cyklerUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/cykler?per_page=50";
+        const cyklerUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/cykler/";
 
 
         window.addEventListener("load", sidenVises);
@@ -94,24 +143,41 @@
         }
 
         function visCykel() {
+
             cykler.forEach(cykel => {
-                if (cykel.id == cykel) {
+                if (cykel.id == id) {
 
-                    document.querySelector("h2").textContent = cykel.title.rendered;
+                    console.log(cykel.billeder);
 
-                    document.querySelector("h3").textContent = cykel.cykel_type;
-                    document.querySelector(".pris").textContent = `${cykel.cykel_pris} DKK`;
-                    //                    document.querySelector(".kort").textContent = cykel.gsx$kort.$t;
-                    //                    document.querySelector(".oprindelse").textContent = `Oprindelse: ${cykel.gsx$oprindelse.$t}`;
-                    //                    document.querySelector("img").src = `imgs/small/${cykel.gsx$billede.$t}-sm.jpg`;
+                    cykel.billede.forEach(b => {
+                        console.log(b.guid);
+                        const klon = skabelon.cloneNode(true).content;
+                        klon.querySelector(".imgsingle").src = b.guid;
+                        document.querySelector(".imgcontainer").appendChild(klon);
+                    })
+
+                    document.querySelector(".title").textContent = cykel.title.rendered;
+
+                    document.querySelector(".pris").textContent = `${cykel.pris_cykel} DKK`;
+
+                    document.querySelector(".info").textContent = cykel.cykel_beskrivelse;
+
+                    document.querySelector(".vaegt").textContent = `Vægt: ${cykel.vgt} Kg`;
+
+                    document.querySelector(".farve").textContent = `Farve: ${cykel.farve}`;
+
+                    document.querySelector(".strrelse").textContent = `Størrelser: ${cykel.strrelse}`;
+
+
+
+
+
                 }
             })
 
         }
 
-        //        document.querySelector(".luk").addEventListener("click", () => {
-        // history.back();
-        //
-        // })
     </script>
-</body></html>
+</body>
+
+</html>
