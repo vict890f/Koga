@@ -12,7 +12,6 @@
 
 <body>
 
-
     <header>
         <div id="menu_box">
             <nav>
@@ -29,45 +28,49 @@
             <div id="logo_box"></div>
         </a>
     </header>
-
-
-
-
-
-    <section id="single" class="box2">
-        <div class="singleview-info">
-            <article>
-                <h2 class="title"></h2>
-                <h3 class="pris"></h3>
-                <h5 class="beskrivelse">BESKRIVELSE</h5>
-                <h4 class="info"></h4>
-                <ul class="facts">
-                    <li class="vaegt"></li>
-                    <li class="farve"></li>
-                    <li class="strrelse"></li>
-                </ul>
-            </article>
-        </div>
-
-        <div class="imgcontainer"></div>
-
-
-        <template>
-
-            <img class="imgsingle" src="" alt="">
-
-        </template>
-
+    <section id="kontakt_side" class="text_center">
+        <h1>KONTAKT</h1>
+        <p>Vi ligger i hjertet af Frederiksberg, få kilometer fra Københavns Rådhus og lige overfor den gamle Diakonissestiftelsen.</p>
     </section>
 
-    <div class="imgvidere"></div>
+    <section class="text_center">
+        <h3>Ejer & daglig leder</h3>
+        <p>
+            Jonas Larsson var en af de første i Danmark, til at genneføre cykelmekaniker-uddannelsen, tilbage i 1987, og var Bl.a medstifter af Danmarks første mountain-bike klub (DMK) www.mtb.dk i 1989. Jonas Larsson har drevet cykelforretning siden 1992, og er en af initiativtagerne, til dannelsen af forretningskæden Cykel-X-Perten www.cxp.dk både som medejer, og indehaver af Frederiksberg afd. Han er derfor yderst kompetent og erfaren, når det kommer til behovs-analyse og rådgivning, indenfor en bred vifte af cykel-typer/modeller og cykeludstyr.</p>
+    </section>
+
+    <div class="information">
+
+        <div class="kontakt">
+            <h3>FIND OS</h3>
+            <ul>
+                <li>Peter Bangsvej 18</li>
+                <li>2000 Frederiksberg</li>
+                <li>Tlf: +45 38 86 43 25</li>
+                <li>Email: info@kogacenter.dk</li>
+            </ul>
+        </div>
+        <div class="tider">
+            <h3>ÅBNINGSTIDER</h3>
+            <ul>
+                <li>Mandag: 11.00 - 18.00</li>
+                <li>Tirsdag: 11.00 - 18.00</li>
+                <li>Onsdag: 11.00 - 18.00</li>
+                <li>Torsdag: 11.00 - 18.00</li>
+                <li>Fredag: 11.00 - 18.00</li>
+                <li>Lørdag: 09.00 - 14.00</li>
+            </ul>
+        </div>
+
+    </div>
 
 
 
-
-
-
-
+    <!--
+    <section class="box1">
+        <img src="assets/SRAM0018.jpg" alt="">
+    </section>
+-->
 
     <section class="box4">
         <img src="assets/1x4/Cykler.jpg" alt="">
@@ -112,17 +115,12 @@
         </div>
     </footer>
 
+
+
+
+
+
     <script>
-        let cykler = [];
-        let urlParams = new URLSearchParams(window.location.search);
-        let id = urlParams.get("id");
-        let navn = urlParams.get("navn");
-        const skabelon = document.querySelector("template");
-        const liste = document.querySelector(".box3");
-        let menuArray;
-        const cyklerUrl = "https://victorborgen.dk/kogacenter/wordpress/wp-json/wp/v2/cykler/";
-
-
         window.addEventListener("load", sidenVises);
 
         function sidenVises() {
@@ -141,56 +139,6 @@
             } else {
                 document.querySelector("#menuknap").textContent = "X";
             }
-        }
-
-        document.addEventListener("DOMContentLoaded", hentJson);
-
-        async function hentJson() {
-            const response = await fetch(cyklerUrl);
-            cykler = await response.json();
-            console.log(cykler);
-
-            visCykel();
-        }
-
-        function visCykel() {
-
-            cykler.forEach(cykel => {
-
-
-
-                if (cykel.id == id) {
-
-                    console.log(cykel.billeder);
-
-                    cykel.billede.forEach(b => {
-                        console.log(b.guid);
-
-                        const klon = skabelon.cloneNode(true).content;
-                        klon.querySelector(".imgsingle").src = b.guid;
-
-                        document.querySelector(".imgcontainer").appendChild(klon);
-                    })
-
-                    document.querySelector(".title").textContent = cykel.title.rendered;
-
-                    document.querySelector(".pris").textContent = `${cykel.pris_cykel} DKK`;
-
-                    document.querySelector(".info").textContent = cykel.cykel_beskrivelse;
-
-                    document.querySelector(".vaegt").textContent = `Vægt: ${cykel.vgt} Kg`;
-
-                    document.querySelector(".farve").textContent = `Farve: ${cykel.farve}`;
-
-                    document.querySelector(".strrelse").textContent = `Størrelser: ${cykel.strrelse}`;
-
-
-
-
-
-                }
-            })
-
         }
     </script>
 </body></html>

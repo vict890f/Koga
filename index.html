@@ -17,15 +17,18 @@
             <nav>
                 <div id="menuknap">☰</div>
                 <div id="menu" class="hidden">
-                    <a href="kogacom.html">FORSIDE</a>
-                    <a href="kogacomom.html">OM KOGA</a>
-                    <a href="kogacomcykler.html">CYKLER</a>
-                    <a href="kogacomkontakt.html">KONTAKT</a>
+                    <a href="index.html">FORSIDE</a>
+                    <a href="kogaom.html">OM KOGA</a>
+                    <a href="kogacykler.html">CYKLER</a>
+                    <a href="kogakontakt.html">KONTAKT</a>
                 </div>
             </nav>
         </div>
-        <div id="logo_box"></div>
+        <a href="kogacom.html">
+            <div id="logo_box"></div>
+        </a>
     </header>
+
 
     <section class="splash">
         <div class="splash_kasse">
@@ -83,28 +86,49 @@
 
     <footer>
         <div class="blok">
+
             <h2>CYKLER</h2>
             <ul>
-                <li>Racing</li>
-                <li>City</li>
-                <li>Touring</li>
+                <a href="">
+                    <li>Racing</li>
+                </a>
+                <a href="">
+                    <li>City</li>
+                </a>
+                <a href="">
+                    <li>Touring</li>
+                </a>
             </ul>
         </div>
         <div class="blok">
             <h2>SERVICE</h2>
             <ul>
-                <li>Kontakt</li>
-                <li>Faq</li>
-                <li>Instruktions Manualer</li>
-                <li>Garanti</li>
+                <a href="kogakontakt.html">
+                    <li>Kontakt</li>
+                </a>
+                <a href="">
+                    <li>Faq</li>
+                </a>
+                <a href="">
+                    <li>Instruktions Manualer</li>
+                </a>
+                <a href="">
+                    <li>Garanti</li>
+                </a>
             </ul>
         </div>
         <div class="blok">
             <h2>OM KOGA</h2>
             <ul>
-                <li>Min koga og jeg</li>
-                <li>Historie</li>
-                <li>Forretning</li>
+                <a href="">
+                    <li>Min koga og jeg</li>
+                </a>
+                <a href="">
+                    <li>Historie</li>
+                </a>
+                <a href="">
+                    <li>Forretning</li>
+                </a>
             </ul>
         </div>
         <div class="blok">
@@ -131,6 +155,8 @@
         function sidenVises() {
             console.log("sidenVises");
             document.querySelector("#menuknap").addEventListener("click", toggleMenu);
+
+            start();
         }
 
         function toggleMenu() {
@@ -144,6 +170,8 @@
             } else {
                 document.querySelector("#menuknap").textContent = "X";
             }
+
+
         }
     </script>
 </body></html>
