@@ -22,10 +22,11 @@
                     <a href="kogaom.html">OM KOGA</a>
                     <a href="kogacykler.html">CYKLER</a>
                     <a href="kogakontakt.html">KONTAKT</a>
+                    <a href="kogafaq.html">FAQ</a>
                 </div>
             </nav>
         </div>
-        <a href="kogacom.html">
+        <a href="index.html">
             <div id="logo_box"></div>
         </a>
     </header>
@@ -46,21 +47,18 @@
                     <li class="farve"></li>
                     <li class="strrelse"></li>
                 </ul>
+                <div class="imgcontainer"></div>
             </article>
         </div>
-
-        <div class="imgcontainer"></div>
-
+        <img class="imgvidere" src="" alt="">
 
         <template>
-
             <img class="imgsingle" src="" alt="">
-
         </template>
 
     </section>
 
-    <div class="imgvidere"></div>
+
 
 
 
@@ -157,11 +155,15 @@
 
             cykler.forEach(cykel => {
 
-
-
                 if (cykel.id == id) {
 
-                    console.log(cykel.billeder);
+                    document.querySelector(".imgvidere").src = cykel.billede[0].guid;
+                    console.log("lol");
+                    document.querySelector(".imgcontainer").src = cykel.billede[0].guid;
+                    console.log("lol2");
+
+
+                    console.log(cykel.billede);
 
                     cykel.billede.forEach(b => {
                         console.log(b.guid);
@@ -192,5 +194,8 @@
             })
 
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
