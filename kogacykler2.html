@@ -15,7 +15,8 @@
     <header>
         <div id="menu_box">
             <nav>
-                <div id="menu">
+                <div id="menuknap">☰</div>
+                <div id="menu" class="hidden">
                     <a href="index.html">FORSIDE</a>
                     <a href="kogaom.html">OM KOGA</a>
                     <a href="kogacykler.html">CYKLER</a>
@@ -59,11 +60,9 @@
         </template>
     </section>
 
-    <a href="https://www.koga.com/en/koga-signature">
-        <section class="box1">
-            <img src="assets/1x1/kogaSignature.jpg" alt="">
-        </section>
-    </a>
+    <section class="box1">
+        <img src="assets/1x1/kogaSignature.jpg" alt="">
+    </section>
 
     <section class="box4">
         <img src="assets/1x4/Cykler.jpg" alt="">
@@ -71,69 +70,6 @@
         <img src="assets/1x4/kontakt.jpg" alt="">
         <img src="assets/1x4/omKoga.jpg" alt="">
     </section>
-
-    <footer>
-        <div class="blok">
-
-            <h2>CYKLER</h2>
-            <ul>
-                <a href="kogacykler.html">
-                    <li>Racing</li>
-                </a>
-                <a href="kogacykler.html">
-                    <li>City</li>
-                </a>
-                <a href="kogacykler.html">
-                    <li>Touring</li>
-                </a>
-            </ul>
-        </div>
-        <div class="blok">
-            <h2>SERVICE</h2>
-            <ul>
-                <a href="kogakontakt.html">
-                    <li>Kontakt</li>
-                </a>
-                <a href="">
-                    <li>Faq</li>
-                </a>
-                <a href="">
-                    <li>Instruktions Manualer</li>
-                </a>
-                <a href="">
-                    <li>Garanti</li>
-                </a>
-            </ul>
-        </div>
-        <div class="blok">
-            <h2>OM KOGA</h2>
-            <ul>
-                <a href="kogaom.html">
-                    <li>Min koga og jeg</li>
-                </a>
-                <a href="kogaom.html">
-                    <li>Historie</li>
-                </a>
-                <a href="kogaom.html">
-                    <li>Forretning</li>
-                </a>
-            </ul>
-        </div>
-        <div class="blok">
-            <h2>SOCIAL</h2>
-            <div id="social">
-                <a href="https://www.facebook.com/kogacenter/">
-                    <div id="fb" class="ikon"></div>
-                </a>
-                <a href="https://twitter.com/Kogacenter?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3AKogacenter&ref_url=http%3A%2F%2Fwww.kogacenter.dk%2F">
-                    <div id="tw" class="ikon"></div>
-                </a>
-                <a href="https://www.instagram.com/kogabikes/?hl=da">
-                    <div id="ig" class="ikon"></div>
-                </a>
-            </div>
-        </div>
-    </footer>
 
 
 
@@ -154,8 +90,24 @@
 
         function sidenVises() {
             console.log("sidenVises");
+            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
 
             start();
+        }
+
+        function toggleMenu() {
+            console.log("toggleMenu");
+            document.querySelector("#menu").classList.toggle("hidden");
+
+            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
+
+            if (erSkjult == true) {
+                document.querySelector("#menuknap").textContent = "☰";
+            } else {
+                document.querySelector("#menuknap").textContent = "X";
+            }
+
+
         }
 
 
@@ -221,5 +173,8 @@
 
             visCykler();
         }
+
     </script>
-</body></html>
+</body>
+
+</html>

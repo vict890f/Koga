@@ -503,8 +503,16 @@
           display: grid;
       }
 
+      .pic_column img {
+          display: inline;
+      }
+
 
       @media only screen and (min-width: 1000px) {
+
+          button {
+              font-size: 1.5rem;
+          }
 
           /**************SPLASH************'*/
 
@@ -707,6 +715,10 @@
 
           article img {
               justify-content: center;
+          }
+
+          article {
+              margin-bottom: 4vw;
           }
 
 
