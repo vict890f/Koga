@@ -10,15 +10,17 @@
 
   header {
       display: grid;
-      grid-template-columns: 30vw 70vw;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
-      height: 60px;
+      height: 80px;
       background-color: white;
-      z-index: 100;
+      z-index: 1;
   }
+
 
   a {
       text-decoration: none;
@@ -27,12 +29,15 @@
       font-size: .7rem;
       color: black;
       font-weight: 900;
+      cursor: pointer;
   }
 
   .ikon {
       width: 26px;
       height: 26px;
   }
+
+
 
   #fb {
       background-image: url(assets/socialMedier/facebook.png);
@@ -58,24 +63,31 @@
   }
 
   #logo_box {
-      grid-column: 2;
+      margin: 5px auto 0;
+      display: grid;
       grid-row: 1;
-      margin: 20px 0;
       width: 150px;
       height: 20px;
       background-size: cover;
       background-image: url(assets/kogaLogo_A0_Rectangle_5_pattern@2x.png);
   }
 
+  #menu {
+      width: 100vw;
+      height: 30px;
+      text-align: center;
+  }
+
   #menu_box {
-      grid-column: 1;
-      grid-row: 1;
+      grid-row: 2;
   }
 
 
   .hidden {
       display: none;
   }
+
+
 
   /**************'FAQ************'*/
 
@@ -175,6 +187,7 @@
   /**************SPLASH************'*/
 
   .splash {
+      margin: 80px 0 0 0;
       width: 98vw;
       display: grid;
       grid-template-columns: 33.3% 33.3% 33.3%;
@@ -218,6 +231,10 @@
   .pic_column {
       display: grid;
       grid-template-columns: 1fr;
+  }
+
+  .pic_column img {
+      display: none;
   }
 
   /**************'BOX************'*/
@@ -379,10 +396,10 @@
   /*************Knapper**********/
 
   #knapper {
-      width: 395px;
+      width: 80vw;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: 65px 95px 95px 140px;
+      grid-template-columns: 20vw 20vw 20vw 20vw;
   }
 
   button {
@@ -390,15 +407,10 @@
       font-size: 1.5rem;
       color: black;
       font-weight: 500;
+      font-size: .8rem;
   }
 
   /*************Header**********/
-
-  #menuknap {
-      margin: 0 10px;
-      font-size: 2rem;
-  }
-
   /*Fonts*/
 
   h1 {
@@ -453,12 +465,7 @@
 
 
 
-  /***************1 box************/
-
-
-
-
-  @media only screen and (min-width: 1000px) {
+  @media only screen and (min-width:600px) {
 
       /*            *******HEADER****Ø******/
 
@@ -485,9 +492,10 @@
       }
 
       #menu {
+          width: 70vw;
           margin: 45px 20vw 0 0;
           display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+          grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
       }
 
 
@@ -495,246 +503,245 @@
           display: grid;
       }
 
-      #menuknap {
-          display: none;
+
+      @media only screen and (min-width: 1000px) {
+
+          /**************SPLASH************'*/
+
+          .splash img {
+              width: 96vw;
+          }
+
+          .splash_kasse h4 {
+              color: white;
+              margin: 0;
+              font-weight: 500;
+              font-size: 1.1rem;
+              margin: 2px 2px 2px 2px;
+          }
+
+          .splash_firkant {
+              border: 3px solid white;
+              width: 150px;
+              height: 25px;
+              margin: 5vw auto 0;
+          }
+
+          .splash h1:hover {
+              opacity: .8;
+          }
+
+          .splash h4:hover {
+              opacity: .8;
+          }
+
+          .splash h1 {
+              text-shadow: 2px 2px black;
+          }
+
+
+
+          /***********Fonts************/
+
+          h1 {
+              font-size: 4rem;
+              margin: 1vw 0;
+          }
+
+          body {
+              margin: 100px 2vw;
+          }
+
+          p {
+              font-size: .9rem;
+              line-height: 1.5rem;
+          }
+
+          /**************Pic column************'*/
+
+          .pic_column {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              margin: 3vw 0;
+          }
+
+          .column_text {
+              margin: 0 2vw;
+          }
+
+          .column_text h3 {
+              margin: 0;
+          }
+
+          .column_text p {
+              margin: 1vw 0;
+          }
+
+          /**************BOX************'*/
+
+
+          .box1 {}
+
+          .box2 {
+              display: grid;
+              grid-template-columns: 47vw 47vw;
+              justify-content: space-between;
+          }
+
+          .box3 {
+              display: grid;
+              grid-template-columns: 31vw 31vw 31vw;
+              justify-content: space-between;
+          }
+
+          .box3 h4 {
+              text-shadow: 2px 2px black;
+          }
+
+          .box4 {
+              display: grid;
+              grid-template-columns: 23vw 23vw 23vw 23vw;
+              justify-content: space-between;
+              margin: 0;
+          }
+
+          .text_center {
+              display: block;
+              margin: 4vw auto 5vw;
+              width: 800px;
+          }
+
+          .faq {
+              display: block;
+              margin: 2vw auto 2vw;
+              width: 800px;
+          }
+
+          .text_center h1 {
+              font-size: 3rem;
+              text-align: center;
+          }
+
+          .box3_billede h4 {
+              margin: 35vh auto;
+              width: 31vw;
+
+          }
+
+          /************Kontakt***********/
+
+          #kontakt_side h1 {
+              font-size: 2rem;
+              margin: 0 0 2vw 0;
+          }
+
+          .information {
+              display: grid;
+              grid-template-columns: 1fr 1fr 1fr 1fr;
+              grid-template-rows: 1fr;
+          }
+
+          .kontakt {
+              grid-column: 2;
+              grid-row: 1;
+          }
+
+          .tider {
+              grid-column: 3;
+              grid-row: 1;
+
+          }
+
+          .information ul {
+              list-style-type: none;
+              font-family: sans-serif;
+              font-size: .7rem;
+              font-weight: 100;
+              margin: 6px 0 12px 0;
+          }
+
+          .information h3 {
+              font-size: .9rem;
+              margin: 0 0 0 0;
+          }
+
+
+          /***********Box1************/
+
+          .box1_kasse {
+              margin: 12vw 0;
+              position: absolute;
+              width: 98vw;
+          }
+
+          .om_kasse {
+              margin: 12vw 0;
+
+          }
+
+          .om_kasse h4 {
+              font-size: 3rem;
+          }
+
+          .box1_kasse h3 {
+              font-size: 2rem;
+              text-align: center;
+
+          }
+
+          .box1_kasse h4 {
+              margin: 0 auto;
+              width: 70vw;
+              display: block;
+              font-size: 2.9rem;
+
+          }
+
+          .mere {
+              display: block;
+              margin: 3vw auto;
+              width: 90px;
+              height: 25px;
+              border: 3px solid white;
+          }
+
+          article img {
+              justify-content: center;
+          }
+
+
+
+          /*************Knapper**********/
+
+          #knapper {
+              width: 450px;
+              margin: 0 auto;
+              display: block;
+              grid-template-columns: 65px 95px 95px 110px;
+          }
+
+          /*************shop side**********/
+
+          #shop_top {
+              margin: 0;
+          }
+
+          footer {
+              /*          padding: 30px 10vw;*/
+              grid-template-columns: 20vw 20vw 20vw 20vw;
+              height: 250px;
+
+          }
+
+          footer li,
+          ul,
+          a {
+              margin: 0;
+          }
+
+          .blok ul {
+              list-style-type: none;
+          }
+
+
       }
-
-      /**************SPLASH************'*/
-
-      .splash img {
-          width: 96vw;
-      }
-
-      .splash_kasse h4 {
-          color: white;
-          margin: 0;
-          font-weight: 500;
-          font-size: 1.1rem;
-          margin: 2px 2px 2px 2px;
-      }
-
-      .splash_firkant {
-          border: 3px solid white;
-          width: 150px;
-          height: 25px;
-          margin: 5vw auto 0;
-      }
-
-      .splash h1:hover {
-          opacity: .8;
-      }
-
-      .splash h4:hover {
-          opacity: .8;
-      }
-
-      .splash h1 {
-          text-shadow: 2px 2px black;
-      }
-
-
-
-      /***********Fonts************/
-
-      h1 {
-          font-size: 4rem;
-          margin: 1vw 0;
-      }
-
-      body {
-          margin: 100px 2vw;
-      }
-
-      p {
-          font-size: .9rem;
-          line-height: 1.5rem;
-      }
-
-      /**************Pic column************'*/
-
-      .pic_column {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          margin: 3vw 0;
-      }
-
-      .column_text {
-          margin: 0 2vw;
-      }
-
-      .column_text h3 {
-          margin: 0;
-      }
-
-      .column_text p {
-          margin: 1vw 0;
-      }
-
-      /**************BOX************'*/
-
-
-      .box1 {}
-
-      .box2 {
-          display: grid;
-          grid-template-columns: 47vw 47vw;
-          justify-content: space-between;
-      }
-
-      .box3 {
-          display: grid;
-          grid-template-columns: 31vw 31vw 31vw;
-          justify-content: space-between;
-      }
-
-      .box3 h4 {
-          text-shadow: 2px 2px black;
-      }
-
-      .box4 {
-          display: grid;
-          grid-template-columns: 23vw 23vw 23vw 23vw;
-          justify-content: space-between;
-          margin: 0;
-      }
-
-      .text_center {
-          display: block;
-          margin: 4vw auto 5vw;
-          width: 800px;
-      }
-
-      .faq {
-          display: block;
-          margin: 2vw auto 2vw;
-          width: 800px;
-      }
-
-      .text_center h1 {
-          font-size: 3rem;
-          text-align: center;
-      }
-
-      .box3_billede h4 {
-          margin: 35vh auto;
-          width: 31vw;
-
-      }
-
-      /************Kontakt***********/
-
-      #kontakt_side h1 {
-          font-size: 2rem;
-          margin: 0 0 2vw 0;
-      }
-
-      .information {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr 1fr;
-          grid-template-rows: 1fr;
-      }
-
-      .kontakt {
-          grid-column: 2;
-          grid-row: 1;
-      }
-
-      .tider {
-          grid-column: 3;
-          grid-row: 1;
-
-      }
-
-      .information ul {
-          list-style-type: none;
-          font-family: sans-serif;
-          font-size: .7rem;
-          font-weight: 100;
-          margin: 6px 0 12px 0;
-      }
-
-      .information h3 {
-          font-size: .9rem;
-          margin: 0 0 0 0;
-      }
-
-
-      /***********Box1************/
-
-      .box1_kasse {
-          margin: 12vw 0;
-          position: absolute;
-          width: 98vw;
-      }
-
-      .om_kasse {
-          margin: 12vw 0;
-
-      }
-
-      .om_kasse h4 {
-          font-size: 3rem;
-      }
-
-      .box1_kasse h3 {
-          font-size: 2rem;
-          text-align: center;
-
-      }
-
-      .box1_kasse h4 {
-          margin: 0 auto;
-          width: 70vw;
-          display: block;
-          font-size: 2.9rem;
-
-      }
-
-      .mere {
-          display: block;
-          margin: 3vw auto;
-          width: 90px;
-          height: 25px;
-          border: 3px solid white;
-      }
-
-      article img {
-          justify-content: center;
-      }
-
-
-
-      /*************Knapper**********/
-
-      #knapper {
-          width: 450px;
-          margin: 0 auto;
-          display: block;
-          grid-template-columns: 65px 95px 95px 110px;
-      }
-
-      /*************shop side**********/
-
-      #shop_top {
-          margin: 0;
-      }
-
-      footer {
-          /*          padding: 30px 10vw;*/
-          grid-template-columns: 20vw 20vw 20vw 20vw;
-          height: 250px;
-
-      }
-
-      footer li,
-      ul,
-      a {
-          margin: 0;
-      }
-
-      .blok ul {
-          list-style-type: none;
-      }
-
-
-  }

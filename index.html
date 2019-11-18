@@ -15,8 +15,7 @@
     <header>
         <div id="menu_box">
             <nav>
-                <div id="menuknap">☰</div>
-                <div id="menu" class="hidden">
+                <div id="menu">
                     <a href="index.html">FORSIDE</a>
                     <a href="kogaom.html">OM KOGA</a>
                     <a href="kogacykler.html">CYKLER</a>
@@ -31,25 +30,27 @@
     </header>
 
 
-    <section class="splash">
-        <div class="splash_kasse">
-            <h1>KOGA, EN NY BEGYNDELSE </h1>
-            <a href="kogacomcykler.html">
+    <a href="kogacykler.html">
+        <section class="splash">
+            <div class="splash_kasse">
+                <h1>KOGA, EN NY BEGYNDELSE </h1>
+                <a href="kogacomcykler.html">
 
-                <div class="mere">
-                    <h5>Læs mere</h5>
-                </div>
+                    <div class="mere">
+                        <h5>Se udvalget</h5>
+                    </div>
 
-                <!--
+                    <!--
                 <div class="splash_firkant">
                     <h4>Se udvalget</h4>
                 </div>
 -->
 
-            </a>
-        </div>
-        <img src="assets/SRAM0018.jpg" alt="">
-    </section>
+                </a>
+            </div>
+            <img src="assets/SRAM0018.jpg" alt="">
+        </section>
+    </a>
 
     <section class="text_center">
         <h3>KOGA CENTER COPENHAGEN</h3>
@@ -135,13 +136,13 @@
         <div class="blok">
             <h2>OM KOGA</h2>
             <ul>
-                <a href="">
+                <a href="kogaom.html">
                     <li>Min koga og jeg</li>
                 </a>
-                <a href="">
+                <a href="kogaom.html">
                     <li>Historie</li>
                 </a>
-                <a href="">
+                <a href="kogaom.html">
                     <li>Forretning</li>
                 </a>
             </ul>
@@ -149,9 +150,15 @@
         <div class="blok">
             <h2>SOCIAL</h2>
             <div id="social">
-                <div id="fb" class="ikon"></div>
-                <div id="tw" class="ikon"></div>
-                <div id="ig" class="ikon"></div>
+                <a href="https://www.facebook.com/kogacenter/">
+                    <div id="fb" class="ikon"></div>
+                </a>
+                <a href="https://twitter.com/Kogacenter?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3AKogacenter&ref_url=http%3A%2F%2Fwww.kogacenter.dk%2F">
+                    <div id="tw" class="ikon"></div>
+                </a>
+                <a href="https://www.instagram.com/kogabikes/?hl=da">
+                    <div id="ig" class="ikon"></div>
+                </a>
             </div>
         </div>
     </footer>
@@ -169,27 +176,7 @@
 
         function sidenVises() {
             console.log("sidenVises");
-            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
-
-            start();
-        }
-
-        function toggleMenu() {
-            console.log("toggleMenu");
-            document.querySelector("#menu").classList.toggle("hidden");
-
-            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
-
-            if (erSkjult == true) {
-                document.querySelector("#menuknap").textContent = "☰";
-            } else {
-                document.querySelector("#menuknap").textContent = "X";
-            }
-
 
         }
-
     </script>
-</body>
-
-</html>
+</body></html>

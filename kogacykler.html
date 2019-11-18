@@ -15,8 +15,7 @@
     <header>
         <div id="menu_box">
             <nav>
-                <div id="menuknap">☰</div>
-                <div id="menu" class="hidden">
+                <div id="menu">
                     <a href="index.html">FORSIDE</a>
                     <a href="kogaom.html">OM KOGA</a>
                     <a href="kogacykler.html">CYKLER</a>
@@ -71,6 +70,69 @@
         <img src="assets/1x4/omKoga.jpg" alt="">
     </section>
 
+    <footer>
+        <div class="blok">
+
+            <h2>CYKLER</h2>
+            <ul>
+                <a href="kogacykler.html">
+                    <li>Racing</li>
+                </a>
+                <a href="kogacykler.html">
+                    <li>City</li>
+                </a>
+                <a href="kogacykler.html">
+                    <li>Touring</li>
+                </a>
+            </ul>
+        </div>
+        <div class="blok">
+            <h2>SERVICE</h2>
+            <ul>
+                <a href="kogakontakt.html">
+                    <li>Kontakt</li>
+                </a>
+                <a href="">
+                    <li>Faq</li>
+                </a>
+                <a href="">
+                    <li>Instruktions Manualer</li>
+                </a>
+                <a href="">
+                    <li>Garanti</li>
+                </a>
+            </ul>
+        </div>
+        <div class="blok">
+            <h2>OM KOGA</h2>
+            <ul>
+                <a href="kogaom.html">
+                    <li>Min koga og jeg</li>
+                </a>
+                <a href="kogaom.html">
+                    <li>Historie</li>
+                </a>
+                <a href="kogaom.html">
+                    <li>Forretning</li>
+                </a>
+            </ul>
+        </div>
+        <div class="blok">
+            <h2>SOCIAL</h2>
+            <div id="social">
+                <a href="https://www.facebook.com/kogacenter/">
+                    <div id="fb" class="ikon"></div>
+                </a>
+                <a href="https://twitter.com/Kogacenter?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Eprofile%3AKogacenter&ref_url=http%3A%2F%2Fwww.kogacenter.dk%2F">
+                    <div id="tw" class="ikon"></div>
+                </a>
+                <a href="https://www.instagram.com/kogabikes/?hl=da">
+                    <div id="ig" class="ikon"></div>
+                </a>
+            </div>
+        </div>
+    </footer>
+
 
 
 
@@ -90,89 +152,73 @@
 
         function sidenVises() {
             console.log("sidenVises");
-            document.querySelector("#menuknap").addEventListener("click", toggleMenu);
 
             start();
-        }
 
-        function toggleMenu() {
-            console.log("toggleMenu");
-            document.querySelector("#menu").classList.toggle("hidden");
 
-            let erSkjult = document.querySelector("#menu").classList.contains("hidden");
-
-            if (erSkjult == true) {
-                document.querySelector("#menuknap").textContent = "☰";
-            } else {
-                document.querySelector("#menuknap").textContent = "X";
+            function start() {
+                hentCykler();
+                knapperVirker();
             }
 
+            async function hentCykler() {
+                const response = await fetch(cyklerUrl);
+                cykler = await response.json();
+                console.log(cykler);
+                visCykler();
+            }
 
-        }
+            function visCykler() {
 
+                liste.innerHTML = "";
 
-        function start() {
-            hentCykler();
-            knapperVirker();
-        }
+                cykler.forEach(cykel => {
 
-        async function hentCykler() {
-            const response = await fetch(cyklerUrl);
-            cykler = await response.json();
-            console.log(cykler);
-            visCykler();
-        }
+                    if (filter == "alle" || filter == cykel.cykel_type) {
+                        console.log(cykler);
+                        const klon = skabelon.cloneNode(true).content;
 
-        function visCykler() {
+                        //  Billederne ligger i et array, og vi benytter os da af [0], for at vise det første billede i arrayet
 
-            liste.innerHTML = "";
-
-            cykler.forEach(cykel => {
-
-                if (filter == "alle" || filter == cykel.cykel_type) {
-                    console.log(cykler);
-                    const klon = skabelon.cloneNode(true).content;
-
-                    //  Billederne ligger i et array, og vi benytter os da af [0], for at vise det første billede i arrayet
-
-                    klon.querySelector(".billede").src = cykel.billede[0].guid;
-                    klon.querySelector(".billede").alt = cykel.title.rendered + " billede";
-                    klon.querySelector(".title").textContent = cykel.title.rendered;
-                    klon.querySelector(".pris").textContent = `DKK ${cykel.
+                        klon.querySelector(".billede").src = cykel.billede[0].guid;
+                        klon.querySelector(".billede").alt = cykel.title.rendered + " billede";
+                        klon.querySelector(".title").textContent = cykel.title.rendered;
+                        klon.querySelector(".pris").textContent = `DKK ${cykel.
                     pris_cykel}`;
 
-                    liste.appendChild(klon);
+                        liste.appendChild(klon);
 
-                    liste.lastElementChild.addEventListener("click", () => {
-                        location.href = `singleview.html?id=${cykel.id}`;
-                    });
-                }
-            });
+                        liste.lastElementChild.addEventListener("click", () => {
+                            location.href = `singleview.html?id=${cykel.id}`;
+                        });
+                    }
+                });
 
-            //    cykel.billeder.forEach(b => {});
-        }
+                //    cykel.billeder.forEach(b => {});
+            }
 
-        function knapperVirker() {
-            // får alle knapper til at virke
-            document.querySelectorAll(".filter").forEach(elm => {
-                elm.addEventListener("click", filtrering);
-            })
-        }
+            function knapperVirker() {
+                // får alle knapper til at virke
+                document.querySelectorAll(".filter").forEach(elm => {
+                    elm.addEventListener("click", filtrering);
+                })
+            }
 
-        function filtrering() {
-            filter = this.dataset.kategori;
+            function filtrering() {
 
-            // styrer overskriften
-            document.querySelector("h1").textContent = this.textContent;
+                filter = this.dataset.kategori;
 
-            // knapperne skifter farve
-            document.querySelectorAll(".filter").forEach(elm => {
-                elm.classList.remove("valgt");
-            })
-            this.classList.add("valgt");
+                // styrer overskriften
+                document.querySelector("h1").textContent = this.textContent;
 
-            visCykler();
-        }
+                // knapperne skifter farve
+                document.querySelectorAll(".filter").forEach(elm => {
+                    elm.classList.remove("valgt");
+                })
+                this.classList.add("valgt");
+
+                visCykler();
+            }
 
     </script>
 </body>
