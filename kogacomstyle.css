@@ -4,6 +4,11 @@
 
   }
 
+  * {
+      font-family: aktiv-grotesk, sans-serif;
+      font-style: normal;
+  }
+
   img {
       width: 100%;
   }
@@ -403,6 +408,7 @@
   }
 
   button {
+      cursor: pointer;
       border: none;
       font-size: 1.5rem;
       color: black;
@@ -719,6 +725,7 @@
 
           article {
               margin-bottom: 4vw;
+              cursor: pointer;
           }
 
 
@@ -741,7 +748,7 @@
           footer {
               /*          padding: 30px 10vw;*/
               grid-template-columns: 20vw 20vw 20vw 20vw;
-              height: 250px;
+              height: 200px;
 
           }
 
